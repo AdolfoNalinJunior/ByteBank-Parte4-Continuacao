@@ -19,7 +19,7 @@ namespace ByteBank
             LeitorDeArquivos leitor = null;
             try
             {
-                leitor = new LeitorDeArquivos("contasl.txt");
+                leitor = new LeitorDeArquivos("contas.txt");
 
                 leitor.LerProximaLinha();
                 leitor.LerProximaLinha();
@@ -33,6 +33,7 @@ namespace ByteBank
             {
                 if (leitor != null)
                 {
+                    Console.WriteLine("Executando o Finally");
                     leitor.Fechar();
                 }
                 else

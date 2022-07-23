@@ -51,7 +51,6 @@ namespace ByteBank
             TaxaOperacacao = 30 / TotalDeContasCriadas;
         }
 
-
         public void Sacar(double valor)
         {
             if (valor < 0)
@@ -72,7 +71,6 @@ namespace ByteBank
         {
             _saldo += valor;
         }
-
 
         public void Transferir(double valor, ContaCorrente contaDestino)
         { 

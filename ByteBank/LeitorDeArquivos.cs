@@ -13,7 +13,7 @@ namespace ByteBank
 
         public LeitorDeArquivos(string arquivo)
         {
-           this.Arquivo = arquivo;
+            this.Arquivo = arquivo;
             throw new FileNotFoundException();
             Console.WriteLine("Abrindo arquivo " + arquivo);
         }
