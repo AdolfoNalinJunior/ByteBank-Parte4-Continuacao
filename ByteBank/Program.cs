@@ -11,36 +11,46 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            CarregarContas();
+            try
+            {
+                CarregarContas();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void CarregarContas()
         {
-            LeitorDeArquivos leitor = null;
-            try
-            {
-                leitor = new LeitorDeArquivos("contas.txt");
 
-                leitor.LerProximaLinha();
-                leitor.LerProximaLinha();
-                leitor.LerProximaLinha();
-            }
-            catch (IOException)
+            using (LeitorDeArquivos leitor = new LeitorDeArquivos("text.txt"))
             {
-                Console.WriteLine("Exceção do tipo IOException capturada e tratada! ");
+                leitor.LerProximaLinha();          
             }
-            finally
-            {
-                if (leitor != null)
-                {
-                    Console.WriteLine("Executando o Finally");
-                    leitor.Fechar();
-                }
-                else
-                {
-                    Console.WriteLine("Verifique o nome do arquivo!! ");
-                }
-            }
+
+            // ---------------------------------
+            //LeitorDeArquivos leitor = null;
+            //try
+            //{
+            //    leitor = new LeitorDeArquivos("contas.txt");
+
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //}
+            //finally
+            //{
+            //    if (leitor != null)
+            //    {
+            //        Console.WriteLine("Executando o Finally");
+            //        leitor.Fechar();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Verifique o nome do arquivo!! ");
+            //    }
+            //}
         }
 
         private static void TestaInnerException()
